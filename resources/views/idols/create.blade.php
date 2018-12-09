@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-header">Create New Idol</div>
                     <div class="card-body">
-                        <a href="{{ url('/idols') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/idols') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 
@@ -21,7 +21,7 @@
                             </ul>
                         @endif
 
-                        <form method="POST" action="{{ url('/idols') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('/admin/idols') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             @include ('idols.form', ['formMode' => 'create'])

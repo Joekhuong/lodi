@@ -52,13 +52,13 @@ class IdolsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'name' => 'required|max:100'
+			'name' => 'required|max:100|unique:idols,name'
 		]);
         $requestData = $request->all();
         
         Idol::create($requestData);
 
-        return redirect('idols')->with('flash_message', 'Idol added!');
+        return redirect('/admin/idols')->with('flash_message', 'Idol added!');
     }
 
     /**
@@ -121,6 +121,6 @@ class IdolsController extends Controller
     {
         Idol::destroy($id);
 
-        return redirect('idols')->with('flash_message', 'Idol deleted!');
+        return redirect('/admin/idols')->with('flash_message', 'Idol deleted!');
     }
 }
