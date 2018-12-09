@@ -1,0 +1,15 @@
+.navbar-laravel {
+    background:  #3366CC !important;
+}
+
+.navbar-laravel * {
+    color: white !important;
+}
+
+.navbar-laravel .dropdown-item {
+    color: black !important;
+}
+
+.search-box {
+    color: black !important;
+}

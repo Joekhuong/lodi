@@ -1,0 +1,22 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "img_url",
+            "type": "string"
+        },
+        {
+            "name": "dob",
+            "type": "date"
+        }        
+    ],    
+    "validations": [
+        {
+            "field": "name",
+            "rules": "required|max:100"
+        }
+    ]
+}
