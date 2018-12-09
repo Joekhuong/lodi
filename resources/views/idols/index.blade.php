@@ -29,7 +29,7 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Name</th><th>Img Url</th><th>Date of Birth</th><th>Actions</th>
+                                        <th>#</th><th>Name</th><th>Img Url</th><th>Date of Birth</th><th>Page</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,6 +41,7 @@
                                             <img class="mr-4" src="{{ $item->img_url }}" alt="Icon" height="60" width="60">
                                         </td>
                                         <td>{{ $item->dob }}</td>
+                                        <td>{{ $item->page->key }}</td>
                                         <td>
                                             <a href="{{ url('/admin/idols/' . $item->id) }}" title="View Idol"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/idols/' . $item->id . '/edit') }}" title="Edit Idol"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

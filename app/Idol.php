@@ -46,4 +46,12 @@ class Idol extends Model
     {        
         return date($format, strtotime ($this->dob));
     }
+
+    /**
+     * Get the page record associated with the idol
+     */
+    public function page()
+    {
+        return $this->hasOne('App\Page', 'id', 'page_id');
+    }
 }

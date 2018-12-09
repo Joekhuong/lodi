@@ -55,10 +55,22 @@ class IdolsController extends Controller
 			'name' => 'required|max:100|unique:idols,name'
 		]);
         $requestData = $request->all();
+
+        $page = \App\Page::create();        
+        $page->save();
         
-        Idol::create($requestData);
+        $new = Idol::create($requestData);
+        $new->page_id = $page->id;
+        $new->save();
 
         return redirect('/admin/idols')->with('flash_message', 'Idol added!');
+    }
+
+    public function showPage($idol_id)
+    {
+        $idol = Idol::findOrFail($idol_id);
+
+        return json_encode($idol,true);
     }
 
     /**

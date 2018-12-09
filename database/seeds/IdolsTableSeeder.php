@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+
 
 class IdolsTableSeeder extends Seeder
 {
@@ -11,7 +13,8 @@ class IdolsTableSeeder extends Seeder
      */
     public function run()
     {
-        $id = DB::table('pages')->insertGetId([            
+        $id = DB::table('pages')->insertGetId([ 
+            'key' => Str::random(),           
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -25,7 +28,8 @@ class IdolsTableSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
-        $id = DB::table('pages')->insertGetId([            
+        $id = DB::table('pages')->insertGetId([
+            'key' => Str::random(),     
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
@@ -39,7 +43,8 @@ class IdolsTableSeeder extends Seeder
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
-        $id = DB::table('pages')->insertGetId([            
+        $id = DB::table('pages')->insertGetId([
+            'key' => Str::random(),          
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
