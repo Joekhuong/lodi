@@ -24,6 +24,7 @@ Route::group( [ 'prefix' => 'admin',
     function()
 {
     Route::resource('idols', 'IdolsController');
+    Route::resource('regions', 'RegionController');
 });
 
 Auth::routes();
@@ -31,3 +32,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/idols/search', 'HomeController@index')->name('idols_search');
+

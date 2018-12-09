@@ -24,13 +24,28 @@
                             <img src="image/facebook_profile_image.png" alt="Icon" height="150" width="150">
                         </h5>
 
-                        <form method="POST" class="form-signin" action="{{ route('login') }}">
+                        <form method="POST" class="form-signin" action="{{ route('register') }}">
                             <!-- <div class="form-label-group">
                 <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
                 <label for="inputUserame">Username</label>
               </div> -->
 
                             @csrf
+
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="name" type="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                        name="name" value="{{ old('name') }}" required autofocus>
+
+                                    @if ($errors->has('name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail
@@ -71,6 +86,19 @@
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
                                         required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="region-dropdown" class="col-md-4 col-form-label text-md-right">{{
+                                    __('Region') }}</label>
+                            
+                                <div class="col-md-6">
+                                    <select class="form-control" id="region_id" name="region_id">
+                                        @foreach($regions as $region)
+                                            <option value="{{$region['id']}}">{{$region['name']}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 

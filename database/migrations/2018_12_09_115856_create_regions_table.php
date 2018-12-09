@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class CreateIdolsTable extends Migration
+class CreateRegionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +13,11 @@ class CreateIdolsTable extends Migration
      */
     public function up()
     {
-        Schema::create('idols', function (Blueprint $table) {
+        Schema::create('regions', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('name');
-            $table->string('img_url')->nullable();
-            $table->date('dob');
-            });
+        });
     }
 
     /**
@@ -28,6 +27,6 @@ class CreateIdolsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('idols');
+        Schema::dropIfExists('regions');
     }
 }
