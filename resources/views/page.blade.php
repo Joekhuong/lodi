@@ -21,10 +21,10 @@
             </div> -->
 
             <div class="d-flex flex-column justify-content-center align-items-center">
-                <img class="mr-4" src="{{$page->idol->img_url}}" alt="Icon" height="120" width="120">
-                <div class="row">
-                    One of three columns                  
-                </div>
+
+                <h2>{{$page->idol->name}}</h2>
+
+                <img class="mb-2" src="{{$page->idol->img_url}}" alt="Icon" height="120" width="120">                
 
                 @php
                     $has_followed = \Auth::user()->hasFollow($page->idol->id);                    
