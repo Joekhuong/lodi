@@ -73,6 +73,37 @@ class IdolsController extends Controller
         return json_encode($idol,true);
     }
 
+    public function follow($idol_id)
+    {
+        $follow = \App\Follow::where(['idol_id' => $idol_id, 'user_id' => \Auth::user()->id])->first();
+
+        $idol = \App\Idol::with('page')->findOrFail($idol_id);
+
+        if($follow == null)
+        {
+            \App\Follow::create([
+                'user_id' => \Auth::user()->id,
+                'idol_id' => $idol_id
+            ]);
+        }
+        
+        return redirect('/pages/'.$idol->page->key);
+    }
+
+    public function unfollow($idol_id)
+    {
+        $follow = \App\Follow::where(['idol_id' => $idol_id, 'user_id' => \Auth::user()->id])->first();
+
+        $idol = \App\Idol::with('page')->findOrFail($idol_id);
+
+        \App\Follow::where([
+            'user_id' => \Auth::user()->id,
+            'idol_id' => $idol_id
+        ])->delete();
+        
+        return redirect('/pages/'.$idol->page->key);
+    }
+
     /**
      * Display the specified resource.
      *

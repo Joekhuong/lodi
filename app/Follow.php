@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Follower extends Model
+class Follow extends Model
 {
     /**
      * The database table used by the model.
@@ -45,4 +45,5 @@ class Follower extends Model
     {
         $this->updated_at = date("Y-m-d H:i:s");
     }
+    
 }

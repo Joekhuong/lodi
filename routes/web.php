@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/idols', function () {
-    return view('idols.index');
-});
+Route::get('/idols/follow/{idol_id}', 'IdolsController@follow')->middleware('auth');
+Route::get('/idols/unfollow/{idol_id}', 'IdolsController@unfollow')->middleware('auth');
 
 Route::group( [ 'prefix' => 'admin',
     'middleware' => [
@@ -33,6 +32,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
 //Route::get('/idols/search', 'HomeController@index')->name('idols_search');
 
-Route::get('idols/{idol_id}', 'IdolsController@showPage');
+Route::get('/pages/{page_key?}', 'PagesController@index');
 
 

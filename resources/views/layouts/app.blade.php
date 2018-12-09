@@ -28,6 +28,8 @@
         crossorigin="anonymous"></script>
 
     <link rel="shortcut icon" href="{{asset('image/favicon.png')}}" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 
     @yield('page_css')
 </head>
@@ -44,7 +46,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container input-group">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img class="mr-4" src="image/facebook_profile_image.png" alt="Icon" height="30" width="30">
+                    <img class="mr-4" src="{{asset('image/facebook_profile_image.png')}}" alt="Icon" height="30" width="30">
                 </a>
 
                 

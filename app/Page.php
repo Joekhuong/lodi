@@ -65,8 +65,8 @@ class Page extends Model
     /**
      * Get the user that owns the phone.
      */
-    public function user()
+    public function idol()
     {
-        return $this->belongsTo('App\Idol');
+        return $this->belongsTo('App\Idol', 'id', 'page_id');
     }
 }

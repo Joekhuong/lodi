@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name', 'email', 'password', 'is_admin','created_at', 'updated_at', 'region_id'
     ];
 
+    private $followed_idols = null;
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -39,5 +41,15 @@ class User extends Authenticatable
     public function beforeUpdate()
     {
         $this->updated_at = date("Y-m-d H:i:s");
+    }
+
+    public function getFollowedIdols()
+    {
+        return Follow::where(['user_id' => $this->id])->all()->toArray();
+    }
+
+    public function hasFollow($idol_id)
+    {
+        return Follow::where(['user_id' => $this->id, 'idol_id' => $idol_id])->first() == null ? false : true;
     }
 }
