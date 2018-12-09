@@ -8,14 +8,31 @@
             <div class="card mb-3">
                 <div class="card-header">My Idols</div>
 
+                @php
+                $follows = \Auth::user()->getFollowedIdols();
+                @endphp
+
                 <div class="card-body">
+                    @if(empty($follows))
+                        <h2>You have not following any idol</h2>
+                    @else
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        @foreach(\Auth::user()->getFollowedIdols() as $follow)
+                        
+                        @php
+                        $count = \App\Idol::countTotalFollowers($follow['idol_id']);
+                        @endphp
+
+                        <li class="list-group-item">
+                            <a href="{{ url('/pages/' . $follow['key']) }}" title="Idol page">
+                                {{$follow['name']}}
+                            </a>
+                            {{" ($count)"}}
+                        </li>
+
+                        @endforeach
                     </ul>
+                    @endif
                 </div>
             </div>
         </div>

@@ -45,7 +45,10 @@ class User extends Authenticatable
 
     public function getFollowedIdols()
     {
-        return Follow::where(['user_id' => $this->id])->all()->toArray();
+        return Follow::where(['user_id' => $this->id])
+                ->join('idols', 'follower.idol_id', '=', 'idols.id')
+                ->join('pages', 'idols.page_id', '=', 'pages.id')
+                ->get()->toArray();
     }
 
     public function hasFollow($idol_id)

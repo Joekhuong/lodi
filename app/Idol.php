@@ -54,4 +54,9 @@ class Idol extends Model
     {
         return $this->hasOne('App\Page', 'id', 'page_id');
     }
+
+    public static function countTotalFollowers($idol_id)
+    {
+        return Follow::where(['idol_id' => $idol_id])->count();
+    }
 }
