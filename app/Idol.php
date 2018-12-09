@@ -33,12 +33,17 @@ class Idol extends Model
     {
         $this->created_at = date("Y-m-d H:i:s");
         $this->updated_at = date("Y-m-d H:i:s");
+        $this->dob = $this->formatDob('Y-m-d');
     }
 
     public function beforeUpdate()
     {
         $this->updated_at = date("Y-m-d H:i:s");
+        $this->dob = $this->formatDob('Y-m-d');
     }
 
-    
+    public function formatDob($format)
+    {        
+        return date($format, strtotime ($this->dob));
+    }
 }

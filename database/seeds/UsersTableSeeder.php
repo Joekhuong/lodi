@@ -19,5 +19,32 @@ class UsersTableSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'testing user 1',
+            'email' => 'testing1@gmail.com',
+            'password' => bcrypt('#testing1#'),
+            'is_admin' => false,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'testing user 2',
+            'email' => 'testing2@gmail.com',
+            'password' => bcrypt('#testing2#'),
+            'is_admin' => false,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'testing user 3',
+            'email' => 'testing3@gmail.com',
+            'password' => bcrypt('#testing3#'),
+            'is_admin' => true,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
     }
 }

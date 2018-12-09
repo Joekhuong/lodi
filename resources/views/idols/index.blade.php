@@ -3,13 +3,11 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
-
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Idols</div>
                     <div class="card-body">
-                        <a href="{{ url('/idols/create') }}" class="btn btn-success btn-sm" title="Add New Idol">
+                        <a href="{{ url('admin/idols/create') }}" class="btn btn-success btn-sm" title="Add New Idol">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
 
@@ -31,7 +29,7 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Name</th><th>Img Url</th><th>Dob</th><th>Actions</th>
+                                        <th>#</th><th>Name</th><th>Img Url</th><th>Date of Birth</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -44,8 +42,8 @@
                                         </td>
                                         <td>{{ $item->dob }}</td>
                                         <td>
-                                            <a href="{{ url('/idols/' . $item->id) }}" title="View Idol"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/idols/' . $item->id . '/edit') }}" title="Edit Idol"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/admin/idols/' . $item->id) }}" title="View Idol"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/admin/idols/' . $item->id . '/edit') }}" title="Edit Idol"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
                                             <form method="POST" action="{{ url('/idols' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}

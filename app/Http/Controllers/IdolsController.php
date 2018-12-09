@@ -107,7 +107,7 @@ class IdolsController extends Controller
         $idol = Idol::findOrFail($id);
         $idol->update($requestData);
 
-        return redirect('idols')->with('flash_message', 'Idol updated!');
+        return redirect('admin/idols')->with('flash_message', 'Idol updated!');
     }
 
     /**
