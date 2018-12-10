@@ -11,6 +11,25 @@ use Illuminate\Http\Request;
 class IdolsController extends Controller
 {
     /**
+     * Display list of idols based on search name
+     *
+     * @return \Illuminate\View\View
+     */
+    public function search(Request $request)
+    {
+        $keyword = $request->get('name',null);
+        
+        $idols = array();
+
+        if($keyword != null)
+        {   
+            $idols = \App\Idol::where('name', 'like', '%' . $keyword . '%')->get();
+        }
+
+        return view('idols.search', compact('idols'));
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\View\View

@@ -48,14 +48,14 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img class="mr-4" src="{{asset('image/facebook_profile_image.png')}}" alt="Icon" height="30" width="30">
                 </a>
-
-                
+               
 
                     <input type="text" class="form-control col-md-11 search-box" placeholder="Idols's name (Enter to search)" aria-label="Idols's name"
-                        aria-describedby="button-addon2">
+                        aria-describedby="button-addon2" id="idol-search-txt" name="idol-search-txt">
                     <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
+                        <button class="btn btn-primary" type="button" id="idol-search-btn" name="idol-search-btn">Search</button>
                     </div>
+
 
 
                 
@@ -119,7 +119,11 @@
     </div>
 
     <!-- Scripts -->
-    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+    <script>
+        window.search_url = "{{ route('idols_search') }}";
+    </script>
+    
+    <script src="{{ asset('js/site.js') }}"></script>
     @yield('page_js')
 </body>
 

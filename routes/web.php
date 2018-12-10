@@ -30,8 +30,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
-//Route::get('/idols/search', 'HomeController@index')->name('idols_search');
+Route::get('/idols/search', 'IdolsController@search')->name('idols_search');
 
 Route::get('/pages/{page_key?}', 'PagesController@index');
+
 
 
