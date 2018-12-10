@@ -35,6 +35,43 @@
                     @endif
                 </div>
             </div>
+
+            <div class="card mb-3">
+                <div class="card-header">Top 10</div>
+
+                
+
+                <div class="card-body">                
+                    <select class="custom-select mb-3">
+                        <option selected value="-1">All regions</option>
+                        @php
+                            $regions = \App\Region::all()->toArray();                                
+                        @endphp
+                        @foreach($regions as $region)
+                            <option value="{{$region['id']}}">{{$region['name']}}</option>
+                        @endforeach
+                    </select>
+
+                    @php
+                        $ranking = \App\Idol::getRankingList();
+                    @endphp
+
+                    <ul class="list-group">
+                    @foreach($ranking as $item)
+                        @php
+                        $count = \App\Idol::countTotalFollowers($item['idol_id']);
+                        @endphp
+                        <li class="list-group-item ranking-list">
+                        <a href="{{ url('/pages/' . $follow['key']) }}" title="Idol page">
+                                {{$item['name']}}
+                            </a>
+                            {{" ($count)"}}
+                        </li>
+
+                    @endforeach
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div class="col-md-7">

@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 
 class Idol extends Model
 {
@@ -58,5 +60,16 @@ class Idol extends Model
     public static function countTotalFollowers($idol_id)
     {
         return Follow::where(['idol_id' => $idol_id])->count();
+    }
+
+    public static function getRankingList($regions = null)
+    {
+        if($regions == null)
+        {
+            return Follow::select(\DB::raw('idol_id, count(*) as followers, idols.name as name'))
+            ->leftJoin('idols', 'follower.idol_id', '=', 'idols.id')
+            ->groupBy('idol_id')->orderBy('followers', 'desc')
+            ->limit(10)->get()->toArray();
+        }
     }
 }
